@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfolio of Mariam Isaac, Junior Data Analyst and Analytics Engineer.">
+<style>html{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Mariam Isaac Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: one column of editorial sections. The hero pairs the headline with a four-layer
+   medallion stack (Staging, Bronze, Silver, Gold) that also colors each project's pipeline. */
+:root {
+  --bg: #F4F7FA;
+  --surface: #FFFFFF;
+  --fg: #0B1B2E;
+  --muted: #52627A;
+  --line: #D3DCE8;
+  --chip: #E6EEF6;
+  --accent: #0A6AA1;
+  --accent-ink: #FFFFFF;
+  --teal: #0B7A7C;
+  /* Pipeline layer ramp, slate to blue to teal. Token names follow the medallion layers. */
+  --stg: #64748B;
+  --bronze: #3C78C8;
+  --silver: #1F8FB8;
+  --gold: #0E9488;
+  --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0A1320; --surface: #101C2D; --fg: #E6EEF7; --muted: #93A4BA; --line: #1F3048;
+    --chip: #16263B; --accent: #38BDF8; --accent-ink: #04121F; --teal: #2DD4BF;
+    --stg: #8499B3; --bronze: #6AA3F0; --silver: #38BDF8; --gold: #2DD4BF;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0A1320; --surface: #101C2D; --fg: #E6EEF7; --muted: #93A4BA; --line: #1F3048;
+  --chip: #16263B; --accent: #38BDF8; --accent-ink: #04121F; --teal: #2DD4BF;
+  --stg: #8499B3; --bronze: #6AA3F0; --silver: #38BDF8; --gold: #2DD4BF;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  padding-top: 0;
+  padding-bottom: 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+section[id], header[id] { scroll-margin-top: 110px; }
+.wrap { max-width: 1080px; margin: 56px auto 0; display: flex; flex-direction: column; gap: 88px; }
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; line-height: 1.08; margin: 0; letter-spacing: -0.02em; }
+p { margin: 0; }
+.mono { font-family: var(--font-mono); }
+.eyebrow { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+
+/* Header */
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+.bar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+  margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+@supports (backdrop-filter: blur(1px)) {
+  .bar { background: color-mix(in srgb, var(--bg) 80%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+}
+.bar-in { max-width: 1080px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 8px 24px; padding-block: 10px; }
+.bar .name { font-family: var(--font-display); font-weight: 700; font-size: 20px; letter-spacing: -0.01em; text-decoration: none; white-space: nowrap; }
+.bar nav { display: flex; gap: 4px; min-width: 0; }
+.bar nav a { padding: 7px 13px; border-radius: 6px; text-decoration: none; color: var(--muted); font-size: 14.5px; font-weight: 500; white-space: nowrap; }
+.bar nav a:hover { color: var(--fg); background: var(--chip); }
+.bar nav a[aria-current] { color: var(--accent); background: var(--chip); }
+.bar nav a.pill { background: var(--accent); color: var(--accent-ink); margin-left: 6px; }
+.bar nav a.pill:hover { filter: brightness(1.08); background: var(--accent); color: var(--accent-ink); }
+@media (max-width: 720px) {
+  .bar-in { flex-wrap: wrap; row-gap: 2px; }
+  .bar nav { width: 100%; overflow-x: auto; scrollbar-width: none; padding-bottom: 6px; }
+  .bar nav::-webkit-scrollbar { display: none; }
+}
+
+/* Hero */
+.hero { padding-block: 24px 8px; }
+.hero > div { max-width: 880px; }
+.hero .eyebrow { color: var(--teal); }
+.hero h1 { font-size: clamp(42px, 7vw, 84px); font-weight: 800; margin-block: 16px 22px; max-width: 16ch; }
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero .sub { font-size: 19px; color: var(--muted); max-width: 52ch; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.btn { display: inline-block; padding: 12px 22px; border-radius: 6px; font-weight: 600; font-size: 15px; text-decoration: none; border: 2px solid var(--fg); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn.primary:hover { filter: brightness(1.08); }
+.btn.secondary { background: transparent; color: var(--fg); }
+.btn.secondary:hover { background: var(--chip); }
+.hero .where { margin-top: 24px; font-size: 14px; color: var(--muted); }
+
+/* Section heads */
+.head { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+.head h2 { font-size: clamp(30px, 4.4vw, 46px); font-weight: 700; }
+
+/* About */
+.about { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 48px; }
+.about .copy { display: flex; flex-direction: column; gap: 18px; font-size: 18px; max-width: 62ch; }
+.about ul { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 16px; }
+.about li { display: grid; grid-template-columns: 92px 1fr; gap: 12px; padding-top: 12px; border-top: 1px solid var(--line); }
+.about li b { font-family: var(--font-mono); font-weight: 500; font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); padding-top: 3px; }
+
+/* Projects */
+.proj { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: clamp(20px, 3.5vw, 36px); display: flex; flex-direction: column; gap: 26px; min-width: 0; }
+.projects { display: flex; flex-direction: column; gap: 28px; }
+.proj header { display: flex; flex-direction: column; gap: 10px; }
+.proj h3 { font-size: clamp(26px, 3.6vw, 36px); font-weight: 700; }
+.proj .tag { font-size: 18px; color: var(--muted); max-width: 64ch; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.chips li { font-family: var(--font-mono); font-size: 12.5px; background: var(--chip); padding: 4px 10px; border-radius: 4px; }
+.facts { display: flex; flex-wrap: wrap; gap: 6px 28px; font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+.facts b { color: var(--fg); font-weight: 500; }
+
+.flow { display: flex; flex-wrap: wrap; align-items: stretch; gap: 8px; }
+.flow .node { border: 1px solid var(--line); border-top: 4px solid var(--c, var(--line)); border-radius: 6px; padding: 8px 12px; font-family: var(--font-mono); font-size: 12.5px; background: var(--bg); min-width: 0; }
+.flow .node small { display: block; color: var(--muted); font-size: 11.5px; }
+.flow .arrow { align-self: center; color: var(--muted); font-family: var(--font-mono); }
+.schema { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.schema .fact { border: 2px solid var(--fg); border-radius: 6px; padding: 8px 14px; font-family: var(--font-mono); font-size: 13px; font-weight: 500; }
+.schema .dims { display: flex; flex-wrap: wrap; gap: 6px; }
+.schema .dims span { border: 1px dashed var(--muted); border-radius: 4px; padding: 5px 10px; font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 28px; }
+.cols section { min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.cols h4 { margin: 0; font-family: var(--font-mono); font-weight: 500; font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+.cols p, .cols li { font-size: 15.5px; }
+.cols ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; }
+.cols li::marker { color: var(--muted); }
+.repo { font-family: var(--font-mono); font-size: 13.5px; align-self: flex-start; border-bottom: 2px solid var(--accent); text-decoration: none; padding-bottom: 2px; }
+.repo:hover { background: var(--chip); }
+
+.more { margin-top: 56px; display: flex; flex-direction: column; }
+.more h3 { font-size: 24px; margin-bottom: 8px; }
+.row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 12px 40px; padding-block: 24px; border-top: 1px solid var(--line); }
+.row:last-child { border-bottom: 1px solid var(--line); }
+.row h4 { margin: 0; font-family: var(--font-display); font-size: 21px; font-weight: 700; letter-spacing: -0.01em; }
+.row .tag { font-size: 14.5px; color: var(--muted); margin-top: 4px; }
+.row p { font-size: 15.5px; }
+.row .chips { margin-top: 12px; }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 0; border-top: 1px solid var(--line); }
+.skills section { padding: 24px 24px 24px 0; border-bottom: 1px solid var(--line); min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+.skills h3 { font-size: 19px; font-weight: 700; }
+.skills ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 15px; }
+.skills li { display: flex; gap: 10px; align-items: baseline; }
+.skills li::before { content: ""; width: 6px; height: 6px; flex: none; background: var(--accent); transform: translateY(-2px); }
+
+/* Certifications */
+.certs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 28px; }
+.certs h3 { font-size: 22px; margin-bottom: 14px; }
+.certs ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.certs li { padding-block: 14px; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 2px; }
+.certs li b { font-weight: 600; }
+.certs li span { font-size: 14px; color: var(--muted); }
+
+/* Contact */
+.contact { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: clamp(24px, 5vw, 56px); display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 40px; }
+.contact h2 { font-size: clamp(32px, 5vw, 54px); font-weight: 800; margin-bottom: 16px; }
+.contact p { font-size: 18px; color: var(--muted); max-width: 46ch; }
+.contact dl { margin: 0; display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 14px 12px; align-content: start; font-size: 15.5px; }
+.contact dt { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-top: 3px; }
+.contact dd { margin: 0; overflow-wrap: anywhere; }
+.contact dd a { text-underline-offset: 3px; }
+
+footer { font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; border-top: 1px solid var(--line); padding-top: 20px; }
+
+@media (max-width: 860px) {
+  .wrap { gap: 64px; }
+  .about, .contact { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .row { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 480px) {
+  .about li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .contact dl { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .contact dd { margin-bottom: 12px; }
+}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="bar-in">
+    <a class="name" href="#top">Mariam Isaac</a>
+    <nav aria-label="Sections">
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#certs">Certifications</a>
+      <a class="pill" href="#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- Hero -->
+  <header class="hero" id="top">
+    <div>
+      <p class="eyebrow">Junior Data Analyst &amp; Analytics Engineer</p>
+      <h1>I build the pipelines <em>and</em> find the insights.</h1>
+      <p class="sub">A software engineering foundation applied to data. I design SQL Server warehouses, clean data in Python, and turn raw tables into answers a team can act on.</p>
+      <div class="cta">
+        <a class="btn primary" href="#projects">View Projects</a>
+        <a class="btn secondary" href="#contact">Contact Me</a>
+        <a class="btn secondary" href="https://github.com/mariamisaac-1802">GitHub</a>
+      </div>
+      <p class="where">Alexandria, Egypt. Open to internships and junior roles.</p>
+    </div>
+  </header>
+
+  <!-- Projects -->
+  <section id="projects" aria-labelledby="projects-h">
+    <div class="head">
+      <p class="eyebrow">Selected work</p>
+      <h2 id="projects-h">Projects</h2>
+    </div>
+
+    <div class="projects">
+
+      <!-- Sleep debt -->
+      <article class="proj">
+        <header>
+          <p class="eyebrow">Flagship &middot; Data engineering</p>
+          <h3>Sleep Debt Medallion Data Warehouse</h3>
+          <p class="tag">From a raw CSV to a SQL Server star schema that asks whether phone time before bed costs you sleep.</p>
+          <ul class="chips"><li>Python</li><li>Pandas</li><li>SQL Server</li><li>T-SQL</li><li>Medallion Architecture</li><li>Star Schema</li><li>Stored Procedures</li></ul>
+          <p class="facts"><span><b>8,500</b> users</span><span><b>18</b> source columns</span><span><b>5</b> dimensions</span><span><b>10</b> analytics queries</span></p>
+        </header>
+
+        <div class="flow" aria-label="Pipeline">
+          <div class="node" style="--c: var(--muted)">Python cleaning<small>Jupyter, 10 steps</small></div>
+          <span class="arrow">&rarr;</span>
+          <div class="node" style="--c: var(--stg)">Staging<small>NVARCHAR(255)</small></div>
+          <span class="arrow">&rarr;</span>
+          <div class="node" style="--c: var(--bronze)">Bronze<small>typed upsert</small></div>
+          <span class="arrow">&rarr;</span>
+          <div class="node" style="--c: var(--silver)">Silver<small>constraints</small></div>
+          <span class="arrow">&rarr;</span>
+          <div class="node" style="--c: var(--gold)">Gold<small>views</small></div>
+        </div>
+        <div class="schema" aria-label="Star schema">
+          <span class="fact">fact_sleep_record</span>
+          <span class="mono" style="color: var(--muted)">&larr;</span>
+          <div class="dims"><span>dim_user</span><span>dim_app</span><span>dim_sleep_debt_category</span><span>dim_age_group</span><span>dim_screen_time_bucket</span></div>
+        </div>
+
+        <div class="cols">
+          <section>
+            <h4>Objective</h4>
+            <p>Build a repeatable pipeline from a raw behavioral dataset to reporting views. The warehouse answers whether more bedtime screen time means less sleep and more fatigue, whether a blue light filter or late caffeine changes how fast people fall asleep, and which apps, chronotypes, occupations and age groups show the worst sleep debt.</p>
+          </section>
+          <section>
+            <h4>Method</h4>
+            <ul>
+              <li>Cleaned the data in Python: profiling, type fixes, deduplication, range validation and a quality log. Tested on a deliberately messy copy.</li>
+              <li>Staging as all-text so a load never fails. Bronze with <span class="mono">TRY_CAST</span> and an idempotent incremental upsert.</li>
+              <li>Silver with PK, FK, CHECK and UNIQUE constraints, business rules, and a transactional load that reports rejected rows.</li>
+              <li>Gold star-schema views and ten ready-to-run queries on KPIs, screen-time buckets, apps, chronotypes, caffeine and activity.</li>
+            </ul>
+          </section>
+          <section>
+            <h4>Outcomes</h4>
+            <ul>
+              <li>Row counts reconcile at 8,500 across all four layers.</li>
+              <li>Found that sleep-debt categories overlap in sleep hours, so the category is treated as a source attribute and not recomputed.</li>
+              <li>Found 314 users at the maximum fatigue score of 10, which points to a capped score.</li>
+              <li>Documented limits: no date column means no trend analysis, and results show association, not causation.</li>
+            </ul>
+          </section>
+        </div>
+        <a class="repo" href="https://github.com/mariamisaac-1802/sleep-debt-medallion-data-warehouse">github.com/mariamisaac-1802/sleep-debt-medallion-data-warehouse</a>
+      </article>
+
+      <!-- Superstore python -->
+      <article class="proj">
+        <header>
+          <p class="eyebrow">Flagship &middot; Exploratory analysis</p>
+          <h3>Superstore Sales Analysis with Python</h3>
+          <p class="tag">Sixteen business questions across five domains, in one reproducible three-notebook pipeline.</p>
+          <ul class="chips"><li>Python</li><li>Pandas</li><li>NumPy</li><li>Matplotlib</li><li>Seaborn</li><li>PyArrow / Parquet</li><li>Jupyter</li></ul>
+          <p class="facts"><span><b>16</b> questions</span><span><b>5</b> domains</span><span><b>3</b> notebooks</span></p>
+        </header>
+
+        <div class="flow" aria-label="Notebook pipeline">
+          <div class="node" style="--c: var(--stg)">01 Cleaning &amp; exploring<small>writes superstore_cleaned.parquet</small></div>
+          <span class="arrow">&rarr;</span>
+          <div class="node" style="--c: var(--silver)">02 Analysis<small>writes one Parquet per question</small></div>
+          <span class="arrow">&rarr;</span>
+          <div class="node" style="--c: var(--gold)">03 Visualization<small>reads results, draws charts</small></div>
+        </div>
+
+        <div class="cols">
+          <section>
+            <h4>Objective</h4>
+            <p>Turn the Superstore sales dataset into clear answers on sales performance, profitability, customer behavior, product mix and logistics.</p>
+          </section>
+          <section>
+            <h4>Method</h4>
+            <ul>
+              <li>Audited missing values, duplicates and types. Detected outliers with the IQR method on sales, quantity, discount and profit.</li>
+              <li>Reconciled Product ID and Product Name, fixed dates and categories, removed junk trailer rows.</li>
+              <li>Analyzed trends, regions, sub-category losses, discount against profit, margin by region and category, ship-mode delay, and RFM segments.</li>
+              <li>Built a chart for every question, including a correlation scatter, diverging profit heatmaps and an RFM scatter.</li>
+            </ul>
+          </section>
+          <section>
+            <h4>Outcomes</h4>
+            <ul>
+              <li>Shows which sub-categories lose money and how discounting affects profit.</li>
+              <li>Separates high volume from high value by sub-category.</li>
+              <li>Segments customers by value so retention work can be targeted.</li>
+              <li>Stages hand results to each other as Parquet files, so any stage reruns on its own.</li>
+            </ul>
+          </section>
+        </div>
+        <a class="repo" href="https://github.com/mariamisaac-1802/SuperStore-DataAnalysis-Project">github.com/mariamisaac-1802/SuperStore-DataAnalysis-Project</a>
+      </article>
+
+      <!-- SuperstoreDW -->
+      <article class="proj">
+        <header>
+          <p class="eyebrow">Data warehousing</p>
+          <h3>SuperstoreDW, a T-SQL Medallion Warehouse</h3>
+          <p class="tag">A raw sales CSV becomes a validated star schema, with an audit trail from source file to reporting view.</p>
+          <ul class="chips"><li>SQL Server</li><li>T-SQL</li><li>Stored Procedures</li><li>Medallion Architecture</li><li>Star Schema</li></ul>
+          <p class="facts"><span><b>4</b> dimensions</span><span><b>1</b> fact view</span><span>Central region extract</span></p>
+        </header>
+
+        <div class="schema" aria-label="Star schema">
+          <span class="fact">fact_sales</span>
+          <span class="mono" style="color: var(--muted)">&larr;</span>
+          <div class="dims"><span>dim_customer</span><span>dim_product</span><span>dim_location</span><span>dim_date</span></div>
+        </div>
+
+        <div class="cols">
+          <section>
+            <h4>Objective</h4>
+            <p>Give analysts clean, typed, validated data to query instead of a raw file, with loads that can be rerun safely.</p>
+          </section>
+          <section>
+            <h4>Method</h4>
+            <ul>
+              <li>Staging lands the file as text. Bronze appends with <span class="mono">INSERT &hellip; EXCEPT</span>, so a rerun adds nothing and changed rows keep their history.</li>
+              <li>Silver keeps the latest record per row, trims text, derives margin, shipping delay and a loss-making flag, and filters rows that break CHECK rules.</li>
+              <li>Gold views build surrogate keys and <span class="mono">yyyyMMdd</span> date keys.</li>
+            </ul>
+          </section>
+          <section>
+            <h4>Outcomes</h4>
+            <ul>
+              <li>BI-ready model with sample queries for sales by category, monthly trend, top customers and loss ratio.</li>
+              <li>Written naming conventions and design notes, including why persisted identity keys should replace view-based surrogate keys in production.</li>
+            </ul>
+          </section>
+        </div>
+        <a class="repo" href="https://github.com/mariamisaac-1802/SuperSotre-DataWarehouse-Project">github.com/mariamisaac-1802/SuperSotre-DataWarehouse-Project</a>
+      </article>
+    </div>
+
+    <div class="more">
+      <h3>More data projects</h3>
+
+      <div class="row">
+        <div>
+          <h4>Netflix Titles EDA</h4>
+          <p class="tag">8,800+ titles, 15 questions</p>
+        </div>
+        <div>
+          <p>Cleaned a catalog with a known quirk, where rating and duration values are shifted into the wrong columns. Kept missing director, cast and country as Unknown instead of dropping them, and split multi-value fields into lists. Each of the 15 answers is saved as its own Parquet file and charted: content type, countries, genres, ratings, release patterns, seasonality and content freshness.</p>
+          <ul class="chips"><li>Python</li><li>Pandas</li><li>PyArrow</li><li>Matplotlib</li></ul>
+          <p style="margin-top:12px"><a class="repo" href="https://github.com/mariamisaac-1802/Netflix-Data_Analysis">Repository</a></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <h4>RFM Customer Segmentation</h4>
+          <p class="tag">About 793 customers, 2016 to 2019</p>
+        </div>
+        <div>
+          <p>Aggregated transactions into per-customer Recency, Frequency and Monetary metrics, then scored each on a 1 to 5 quintile scale with <span class="mono">pd.qcut</span>, scoring Recency inversely so recent buyers rank highest. The combined score ranks customers for retention and win-back work.</p>
+          <ul class="chips"><li>Python</li><li>Pandas</li></ul>
+          <p style="margin-top:12px"><a class="repo" href="https://github.com/mariamisaac-1802/RFM-Customer-Segmentation">Repository</a></p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about" aria-labelledby="about-h">
+    <div class="head" style="margin:0">
+      <p class="eyebrow">About</p>
+      <h2 id="about-h">From building software to asking what the data says.</h2>
+    </div>
+    <div class="copy">
+      <p>I study at Alexandria University's Faculty of Science, in Software Industry and Multimedia. Software engineering taught me to build things that run reliably. Data taught me what to ask of them.</p>
+      <p>That is why I work across the whole path. I model layered SQL Server warehouses, clean and explore data in Python, and answer business questions with SQL and charts, from profitability to customer value.</p>
+      <p>My training backs this up. I completed the DEPI Data Analyst Track, a virtual summer internship at CIB Egypt, and the GCI World Program 2026 with the University of Tokyo's Matsuo Lab. I am looking for a junior analytics or analytics engineering role where clean pipelines lead to better decisions.</p>
+      <ul>
+        <li><b>Engineer</b><span>Layered warehouses, stored procedures, constraints, star-schema views.</span></li>
+        <li><b>Clean</b><span>Audits, outlier checks, type fixes and validation in Pandas.</span></li>
+        <li><b>Explain</b><span>SQL and visualization that answer a stated business question.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" aria-labelledby="skills-h">
+    <div class="head">
+      <p class="eyebrow">Toolkit</p>
+      <h2 id="skills-h">Skills</h2>
+    </div>
+    <div class="skills">
+      <section>
+        <h3>Data analysis &amp; Python</h3>
+        <ul><li>Pandas, NumPy</li><li>Matplotlib, Seaborn</li><li>Exploratory data analysis</li><li>Data cleaning, IQR outliers</li><li>RFM segmentation</li><li>Parquet, Jupyter</li></ul>
+      </section>
+      <section>
+        <h3>SQL &amp; data warehousing</h3>
+        <ul><li>T-SQL, Oracle SQL</li><li>ETL, incremental loads</li><li>Medallion Architecture</li><li>Star schema modeling</li><li>Stored procedures</li><li>Data constraints and validation</li></ul>
+      </section>
+      <section>
+        <h3>Business intelligence</h3>
+        <ul><li>Power BI</li><li>Tableau</li><li>Looker</li><li>Dashboard storytelling</li></ul>
+      </section>
+      <section>
+        <h3>Tools &amp; workflow</h3>
+        <ul><li>Git, GitHub</li><li>SQL Server Management Studio</li><li>Technical documentation</li><li>Naming conventions</li><li>Team-based projects</li></ul>
+      </section>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certs" aria-labelledby="certs-h">
+    <div class="head">
+      <p class="eyebrow">Credentials</p>
+      <h2 id="certs-h">Certifications &amp; training</h2>
+    </div>
+    <div class="certs">
+      <div>
+        <h3>Certifications</h3>
+        <ul>
+          <li><b>Business Intelligence using Looker</b><span>Google Skills</span></li>
+          <li><b>Data Fundamentals</b><span>IBM SkillsBuild</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Programs</h3>
+        <ul>
+          <li><b>DEPI Data Analyst Track</b><span>Data analytics training program</span></li>
+          <li><b>Virtual Summer Intern</b><span>CIB Egypt</span></li>
+          <li><b>GCI World Program 2026</b><span>University of Tokyo, Matsuo Lab</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact" aria-labelledby="contact-h">
+    <div>
+      <h2 id="contact-h">Let's work together.</h2>
+      <p>I am open to internships and junior roles in data analytics and analytics engineering. If your team needs someone who can model the warehouse and explain what the data says, write to me.</p>
+    </div>
+    <dl>
+      <dt>Email</dt><dd><a href="mailto:mariamissac.1802@gmail.com">mariamissac.1802@gmail.com</a></dd>
+      <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/mariam-isaac-3bb67435a">linkedin.com/in/mariam-isaac-3bb67435a</a></dd>
+      <dt>GitHub</dt><dd><a href="https://github.com/mariamisaac-1802">github.com/mariamisaac-1802</a></dd>
+      <dt>Kaggle</dt><dd><a href="https://www.kaggle.com/mariamisaac888">kaggle.com/mariamisaac888</a></dd>
+      <dt>Location</dt><dd>Alexandria, Egypt. Open to remote work.</dd>
+    </dl>
+  </section>
+
+  <footer>
+    <span>&copy; 2026 Mariam Isaac</span>
+    <span>Python, T-SQL and a lot of coffee.</span>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var links = document.querySelectorAll('.bar nav a[href^="#"]');
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+  function setActive(id) {
+    links.forEach(function (a) { a.removeAttribute('aria-current'); });
+    if (map[id]) { map[id].setAttribute('aria-current', 'true'); }
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { setActive(e.target.id); } });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    Object.keys(map).forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) { io.observe(el); }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
